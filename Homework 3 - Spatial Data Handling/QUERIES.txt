@@ -1,0 +1,57 @@
+Please note: I had issues with installing PostGres. I spoke to Professor Saty. He suggested to go ahead with SQL.
+
+Also, for the nearest neighbour screenshot, I have made the polygon translucent for better visiblity of the lines. Therefore there are 2 screenshots of the polygon, one with blue fill and one transparent.
+
+
+QUERY 1:
+
+To get Polygon Points
+SET @g = ST_GEOMFROMTEXT('MultiPoint(-118.2829473 34.0218530, -118.2877105 34.0246264, -118.2871036 34.0208559, -118.286486 34.020174, -118.289155 34.021241, -118.285117 34.022352, -118.285441 34.023118, -118.283736 34.020143, -118.2823992 34.0327172)');
+
+SELECT ST_ASTEXT(ST_CONVEXHULL(@g));
+
+
+
+
+Query 2:
+to find 3 nearest neighbours
+
+created table:
+CREATE TABLE geoNearest
+(
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(15),
+    geoPoint POINT NOT NULL,
+    SPATIAL INDEX(geoPoint)
+) ENGINE=MyISAM;
+
+
+Inserting values and executing the query:
+INSERT INTO geoNearest (name, geoPoint)
+VALUES
+  ( "Leavey Library", ST_GeomFromText('POINT(34.0218530 -118.2829473)') ),
+  ( "1015 Watt Way", ST_GeomFromText('POINT(34.0246264 -118.2877105)') ),
+  ( "Annenberg Hall", ST_GeomFromText('POINT(34.0208559 -118.2871036)') ),
+  ( "Ronald Tutor USC", ST_GeomFromText('POINT(34.020174 -118.286486)') ),
+  
+  ( "SGM Hall", ST_GeomFromText('POINT(34.021241 -118.289155)') ),
+  ( "All American Walk", ST_GeomFromText('POINT(34.022352 -118.285117)') ),
+  ( "Music Faculty Memorial", ST_GeomFromText('POINT(34.023118 -118.285441)') ),
+  ( "Doheny Library", ST_GeomFromText('POINT(34.020143 -118.283736)') );
+  SELECT name,
+  id,
+  ST_X(geoPoint) AS "latitude",
+  ST_Y(geoPoint) AS "longitude",
+  (
+    ST_Length(
+      
+        LineString(
+          geoPoint, 
+          ST_GeomFromText('POINT(34.0327172 -118.2823992)')
+        
+      )
+    )
+  )
+  AS distance
+FROM geoNearest
+  ORDER BY distance ASC limit 3;

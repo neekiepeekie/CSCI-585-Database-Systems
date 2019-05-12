@@ -1,0 +1,147 @@
+<kml xmlns="http://earth.google.com/kml/2.0">
+<Document>
+<Style id="z1">
+<IconStyle>
+<Icon>
+<href>
+http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png
+</href>
+</Icon>
+</IconStyle>
+</Style>
+<Placemark>
+<name>Leavey Library </name>
+<styleUrl>#z1</styleUrl>
+<Point>
+<coordinates>-118.2829473, 34.0218530</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>1015 Watt Way</name>
+<styleUrl>#z1</styleUrl>
+<Point>
+<coordinates>-118.2877105, 34.0246264</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Annenberg Hall</name>
+<styleUrl>#z1</styleUrl>
+<Point>
+<coordinates>-118.2871036, 34.0208559</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ronald Tutor USC</name>
+<styleUrl>#z1</styleUrl>
+<Point>
+<coordinates>-118.286486, 34.020174</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>SGM Hall</name>
+<styleUrl>#z1</styleUrl>
+<Point>
+<coordinates>-118.289155, 34.021241</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>All American Walk</name>
+<styleUrl>#z1</styleUrl>
+<Point>
+<coordinates>-118.285117, 34.022352</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Music Faculty Memorial</name>
+<styleUrl>#z1</styleUrl>
+<Point>
+<coordinates>-118.285441, 34.023118</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Doheny Library</name>
+<styleUrl>#z1</styleUrl>
+<Point>
+<coordinates>-118.283736, 34.020143</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Home</name>
+<styleUrl>#z1</styleUrl>
+<Point>
+<coordinates>-118.2823992, 34.0327172</coordinates>
+</Point>
+</Placemark>
+
+<Style id="transPoly">
+      <LineStyle>
+        <width>1.5</width>
+      </LineStyle>
+      <PolyStyle>
+<color>000000</color>
+
+      </PolyStyle>
+    </Style>
+    <Placemark>
+      <name>Polygon</name>
+      <styleUrl>#transPoly</styleUrl>
+      <Polygon>
+        <extrude>1</extrude>
+        <altitudeMode>relativeToGround</altitudeMode>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates> -118.289155,34.021241,17
+              -118.286486,34.020174,17
+              -118.283736,34.020143,17
+              -118.2829473,34.021853,17
+              -118.2823992,34.0327172,17
+              -118.2877105,34.0246264,17
+              -118.289155,34.021241,17
+            </coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+
+<Style id="line">
+      <LineStyle>
+        <width>2.5</width>
+      </LineStyle>
+      <PolyStyle>
+
+
+      </PolyStyle>
+    </Style>
+<Placemark>
+<styleUrl>#line</styleUrl>
+      <LineString>
+        <extrude>1</extrude>
+        <tessellate>1</tessellate>
+<name> Neighbour 1</name>
+        <coordinates>-118.2823992,34.0327172,0  -118.2877105,34.0246264,0</coordinates>
+      </LineString>
+    </Placemark>
+
+<Placemark>
+
+<styleUrl>#line</styleUrl>
+      <LineString>
+        <extrude>1</extrude>
+        <tessellate>1</tessellate>
+<name> Neighbour 2</name>
+        <coordinates>-118.2823992,34.0327172,0  -118.285441,34.023118,0</coordinates>
+      </LineString>
+    </Placemark>
+
+<Placemark>
+
+<styleUrl>#line</styleUrl>
+      <LineString>
+        <extrude>1</extrude>
+        <tessellate>1</tessellate>
+<name> Neighbour 3</name>
+        <coordinates>-118.2823992,34.0327172,0  -118.285117,34.022352,0</coordinates>
+      </LineString>
+    </Placemark>
+</Document>
+</kml>
